@@ -7,6 +7,7 @@ target 'Giffel' do
 
   # Pods for Giffel
   pod 'Alamofire', '~> 4.0'
+  pod 'Nuke', '~> 4.0'
 
   target 'GiffelTests' do
     inherit! :search_paths

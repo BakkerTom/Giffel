@@ -14,6 +14,7 @@
 		E2042EF51D93E57E00D2CC65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2042EF41D93E57E00D2CC65 /* Assets.xcassets */; };
 		E2042EF81D93E57E00D2CC65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2042EF61D93E57E00D2CC65 /* LaunchScreen.storyboard */; };
 		E2042F031D93E57E00D2CC65 /* GiffelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2042F021D93E57E00D2CC65 /* GiffelTests.swift */; };
+		E20ACB661DA44DD8001C9AB4 /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20ACB651DA44DD8001C9AB4 /* GifCollectionViewCell.swift */; };
 		E240B8891DA4160200EE05F6 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B8881DA4160200EE05F6 /* Gif.swift */; };
 		E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */; };
 		E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */; };
@@ -45,6 +46,7 @@
 		E2042EFE1D93E57E00D2CC65 /* GiffelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiffelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2042F021D93E57E00D2CC65 /* GiffelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiffelTests.swift; sourceTree = "<group>"; };
 		E2042F041D93E57E00D2CC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E20ACB651DA44DD8001C9AB4 /* GifCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewCell.swift; sourceTree = "<group>"; };
 		E240B8881DA4160200EE05F6 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiffelAPI.swift; sourceTree = "<group>"; };
 		E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */,
+				E20ACB651DA44DD8001C9AB4 /* GifCollectionViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */,
+				E20ACB661DA44DD8001C9AB4 /* GifCollectionViewCell.swift in Sources */,
 				E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */,
 				E2042EEE1D93E57E00D2CC65 /* AppDelegate.swift in Sources */,
 				E240B8891DA4160200EE05F6 /* Gif.swift in Sources */,
@@ -417,6 +421,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -466,6 +471,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -494,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C09B215C0E9BD0B33874E7E /* Pods-Giffel.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VRXSKYXNPW;
 				INFOPLIST_FILE = Giffel/Info.plist;
@@ -508,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E9AD6622C053925331A2D9 /* Pods-Giffel.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VRXSKYXNPW;
 				INFOPLIST_FILE = Giffel/Info.plist;

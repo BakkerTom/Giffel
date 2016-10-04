@@ -7,23 +7,27 @@
 //
 
 import UIKit
+import Nuke
 
 private let reuseIdentifier = "Cell"
 
 class GifCollectionViewController: UICollectionViewController {
+    
+    private var gifs = [Gif]()
+    var manager = Nuke.Manager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         GiffelAPI.retrievePopular { (results) -> (Void) in
-            print(results)
+            self.gifs = results
+            self.collectionView?.reloadData()
         }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -46,21 +50,25 @@ class GifCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return gifs.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! GifCollectionViewCell
+        
+        cell.imageView.image = nil
+        let gif = gifs[indexPath.item]
+        
+        let urlString = "https:" + gif.imageUrl!
+        let url: URL? = URL(string: urlString)
+        let request: Request = Request(url: url!)
+        
+        manager.loadImage(with: request, into: cell.imageView)
         return cell
     }
 

@@ -1,12 +1,15 @@
 PODS:
   - Alamofire (4.0.0)
+  - Nuke (4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Nuke (~> 4.0)
 
 SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  Nuke: c738cc70c96febfbc974809c1eb8b3d600b09a6b
 
-PODFILE CHECKSUM: 06d3b8d70d370c91e2b6aa23c30cb2869edcbe40
+PODFILE CHECKSUM: eeafcbc82db601cc9cb294d1076360550135c8cf
 
 COCOAPODS: 1.1.0.rc.2
