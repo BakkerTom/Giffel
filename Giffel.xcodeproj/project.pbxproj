@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85CF6F789132B82E7D7BE67A /* Pods_Giffel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798BA2A49F982E04A4A16C31 /* Pods_Giffel.framework */; };
+		8C9625751A663AD2519110E4 /* Pods_GiffelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8DD46358FA3EEF691EABE8 /* Pods_GiffelTests.framework */; };
 		E2042EEE1D93E57E00D2CC65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2042EED1D93E57E00D2CC65 /* AppDelegate.swift */; };
-		E2042EF01D93E57E00D2CC65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2042EEF1D93E57E00D2CC65 /* ViewController.swift */; };
 		E2042EF31D93E57E00D2CC65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2042EF11D93E57E00D2CC65 /* Main.storyboard */; };
 		E2042EF51D93E57E00D2CC65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2042EF41D93E57E00D2CC65 /* Assets.xcassets */; };
 		E2042EF81D93E57E00D2CC65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2042EF61D93E57E00D2CC65 /* LaunchScreen.storyboard */; };
 		E2042F031D93E57E00D2CC65 /* GiffelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2042F021D93E57E00D2CC65 /* GiffelTests.swift */; };
+		E240B8891DA4160200EE05F6 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B8881DA4160200EE05F6 /* Gif.swift */; };
+		E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */; };
+		E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +30,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01E9AD6622C053925331A2D9 /* Pods-Giffel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Giffel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Giffel/Pods-Giffel.release.xcconfig"; sourceTree = "<group>"; };
+		1D8DD46358FA3EEF691EABE8 /* Pods_GiffelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiffelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C09B215C0E9BD0B33874E7E /* Pods-Giffel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Giffel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Giffel/Pods-Giffel.debug.xcconfig"; sourceTree = "<group>"; };
+		5C642DA286AB57269B7DD03C /* Pods-GiffelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiffelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiffelTests/Pods-GiffelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		798BA2A49F982E04A4A16C31 /* Pods_Giffel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Giffel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		883A5E40851E29E60868E3F9 /* Pods-GiffelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiffelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiffelTests/Pods-GiffelTests.release.xcconfig"; sourceTree = "<group>"; };
 		E2042EEA1D93E57E00D2CC65 /* Giffel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Giffel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2042EED1D93E57E00D2CC65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2042EEF1D93E57E00D2CC65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2042EF21D93E57E00D2CC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2042EF41D93E57E00D2CC65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2042EF71D93E57E00D2CC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +45,9 @@
 		E2042EFE1D93E57E00D2CC65 /* GiffelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiffelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2042F021D93E57E00D2CC65 /* GiffelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiffelTests.swift; sourceTree = "<group>"; };
 		E2042F041D93E57E00D2CC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E240B8881DA4160200EE05F6 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiffelAPI.swift; sourceTree = "<group>"; };
+		E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85CF6F789132B82E7D7BE67A /* Pods_Giffel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +63,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9625751A663AD2519110E4 /* Pods_GiffelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B396D9B80C69D71DF678173 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C09B215C0E9BD0B33874E7E /* Pods-Giffel.debug.xcconfig */,
+				01E9AD6622C053925331A2D9 /* Pods-Giffel.release.xcconfig */,
+				5C642DA286AB57269B7DD03C /* Pods-GiffelTests.debug.xcconfig */,
+				883A5E40851E29E60868E3F9 /* Pods-GiffelTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		656F740185E23B9ACB30D691 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				798BA2A49F982E04A4A16C31 /* Pods_Giffel.framework */,
+				1D8DD46358FA3EEF691EABE8 /* Pods_GiffelTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E2042EE11D93E57D00D2CC65 = {
 			isa = PBXGroup;
 			children = (
 				E2042EEC1D93E57E00D2CC65 /* Giffel */,
 				E2042F011D93E57E00D2CC65 /* GiffelTests */,
 				E2042EEB1D93E57E00D2CC65 /* Products */,
+				3B396D9B80C69D71DF678173 /* Pods */,
+				656F740185E23B9ACB30D691 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,8 +113,9 @@
 		E2042EEC1D93E57E00D2CC65 /* Giffel */ = {
 			isa = PBXGroup;
 			children = (
+				E240B88F1DA41D0500EE05F6 /* ViewControllers */,
+				E240B88A1DA4173600EE05F6 /* Models */,
 				E2042EED1D93E57E00D2CC65 /* AppDelegate.swift */,
-				E2042EEF1D93E57E00D2CC65 /* ViewController.swift */,
 				E2042EF11D93E57E00D2CC65 /* Main.storyboard */,
 				E2042EF41D93E57E00D2CC65 /* Assets.xcassets */,
 				E2042EF61D93E57E00D2CC65 /* LaunchScreen.storyboard */,
@@ -96,6 +133,23 @@
 			path = GiffelTests;
 			sourceTree = "<group>";
 		};
+		E240B88A1DA4173600EE05F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */,
+				E240B8881DA4160200EE05F6 /* Gif.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E240B88F1DA41D0500EE05F6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +157,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2042F071D93E57E00D2CC65 /* Build configuration list for PBXNativeTarget "Giffel" */;
 			buildPhases = (
+				A63D32EF6E968C89632C6C50 /* [CP] Check Pods Manifest.lock */,
 				E2042EE61D93E57D00D2CC65 /* Sources */,
 				E2042EE71D93E57D00D2CC65 /* Frameworks */,
 				E2042EE81D93E57D00D2CC65 /* Resources */,
+				0545FEB082AD95E341087731 /* [CP] Embed Pods Frameworks */,
+				D84089B628405E1404CA2D30 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +177,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2042F0A1D93E57E00D2CC65 /* Build configuration list for PBXNativeTarget "GiffelTests" */;
 			buildPhases = (
+				DB7212A48DD8C22FB55B2094 /* [CP] Check Pods Manifest.lock */,
 				E2042EFA1D93E57E00D2CC65 /* Sources */,
 				E2042EFB1D93E57E00D2CC65 /* Frameworks */,
 				E2042EFC1D93E57E00D2CC65 /* Resources */,
+				0407B3F8A3D4C4EDF6B3BE69 /* [CP] Embed Pods Frameworks */,
+				576CF2E2B5EBE3343F6433A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,13 +256,108 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0407B3F8A3D4C4EDF6B3BE69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiffelTests/Pods-GiffelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0545FEB082AD95E341087731 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Giffel/Pods-Giffel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		576CF2E2B5EBE3343F6433A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiffelTests/Pods-GiffelTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A63D32EF6E968C89632C6C50 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D84089B628405E1404CA2D30 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Giffel/Pods-Giffel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB7212A48DD8C22FB55B2094 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E2042EE61D93E57D00D2CC65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2042EF01D93E57E00D2CC65 /* ViewController.swift in Sources */,
+				E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */,
+				E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */,
 				E2042EEE1D93E57E00D2CC65 /* AppDelegate.swift in Sources */,
+				E240B8891DA4160200EE05F6 /* Gif.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +492,7 @@
 		};
 		E2042F081D93E57E00D2CC65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C09B215C0E9BD0B33874E7E /* Pods-Giffel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VRXSKYXNPW;
@@ -350,6 +506,7 @@
 		};
 		E2042F091D93E57E00D2CC65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01E9AD6622C053925331A2D9 /* Pods-Giffel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VRXSKYXNPW;
@@ -363,6 +520,7 @@
 		};
 		E2042F0B1D93E57E00D2CC65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C642DA286AB57269B7DD03C /* Pods-GiffelTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -378,6 +536,7 @@
 		};
 		E2042F0C1D93E57E00D2CC65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 883A5E40851E29E60868E3F9 /* Pods-GiffelTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -410,6 +569,7 @@
 				E2042F091D93E57E00D2CC65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2042F0A1D93E57E00D2CC65 /* Build configuration list for PBXNativeTarget "GiffelTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +578,7 @@
 				E2042F0C1D93E57E00D2CC65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

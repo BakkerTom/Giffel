@@ -1,0 +1,6 @@
+framework module Pods_GiffelTests {
+  umbrella header "Pods-GiffelTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
