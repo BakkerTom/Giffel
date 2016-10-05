@@ -8,6 +8,7 @@ target 'Giffel' do
   # Pods for Giffel
   pod 'Alamofire', '~> 4.0'
   pod 'Nuke', '~> 4.0'
+  pod "Nuke-FLAnimatedImage-Plugin"
 
   target 'GiffelTests' do
     inherit! :search_paths

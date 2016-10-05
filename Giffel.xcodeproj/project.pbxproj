@@ -18,6 +18,7 @@
 		E240B8891DA4160200EE05F6 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B8881DA4160200EE05F6 /* Gif.swift */; };
 		E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */; };
 		E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */; };
+		E2FFE2C01DA553900031C823 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFE2BF1DA5538F0031C823 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		E240B8881DA4160200EE05F6 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiffelAPI.swift; sourceTree = "<group>"; };
 		E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewController.swift; sourceTree = "<group>"; };
+		E2FFE2BF1DA5538F0031C823 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		E240B88F1DA41D0500EE05F6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E2FFE2BF1DA5538F0031C823 /* DetailViewController.swift */,
 				E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */,
 				E20ACB651DA44DD8001C9AB4 /* GifCollectionViewCell.swift */,
 			);
@@ -360,6 +363,7 @@
 				E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */,
 				E20ACB661DA44DD8001C9AB4 /* GifCollectionViewCell.swift in Sources */,
 				E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */,
+				E2FFE2C01DA553900031C823 /* DetailViewController.swift in Sources */,
 				E2042EEE1D93E57E00D2CC65 /* AppDelegate.swift in Sources */,
 				E240B8891DA4160200EE05F6 /* Gif.swift in Sources */,
 			);

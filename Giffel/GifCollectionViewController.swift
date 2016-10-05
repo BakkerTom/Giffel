@@ -8,6 +8,7 @@
 
 import UIKit
 import Nuke
+import NukeFLAnimatedImagePlugin
 
 private let reuseIdentifier = "Cell"
 
@@ -28,7 +29,8 @@ class GifCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-
+        collectionView?.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -37,15 +39,22 @@ class GifCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if let viewController = segue.destination as? DetailViewController {
+            if let cell = sender as? GifCollectionViewCell {
+                let indexPath = collectionView?.indexPath(for: cell)
+                viewController.selectedGif = gifs[(indexPath?.item)!]
+            }
+            
+            //viewController.selectedGif = gifs[collectionView?.selectedItem]
+        }
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -61,46 +70,26 @@ class GifCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! GifCollectionViewCell
         
-        cell.imageView.image = nil
         let gif = gifs[indexPath.item]
         
         let urlString = "https:" + gif.imageUrl!
         let url: URL? = URL(string: urlString)
         let request: Request = Request(url: url!)
         
-        manager.loadImage(with: request, into: cell.imageView)
+        cell.activityIndicator.startAnimating()
+        
+        cell.activityIndicator.startAnimating()
+        AnimatedImage.manager.loadImage(with: request, into: cell.imageView) { [weak cell] in
+            cell?.activityIndicator.stopAnimating()
+            cell?.imageView.handle(response: $0, isFromMemoryCache: $1)
+        }
         return cell
     }
 
     // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "show", sender: collectionView.cellForItem(at: indexPath))
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }

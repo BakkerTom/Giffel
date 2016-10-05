@@ -34,10 +34,10 @@
         <scene sceneID="83v-dx-3vc">
             <objects>
                 <collectionViewController id="Me8-eN-l9P" customClass="GifCollectionViewController" customModule="Giffel" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5IA-hm-YhQ">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="5IA-hm-YhQ">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95661741495132446" green="0.96063953638076782" blue="0.97295886278152466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="h1M-m1-p6h">
                             <size key="itemSize" width="187.5" height="180"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -51,19 +51,9 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="187.5" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="gEb-dc-aSI"/>
-                                    </subviews>
                                 </view>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gEb-dc-aSI" secondAttribute="trailing" id="FtL-W5-Le4"/>
-                                    <constraint firstItem="gEb-dc-aSI" firstAttribute="leading" secondItem="Qgo-VJ-HA4" secondAttribute="leading" id="Mz6-Ok-nub"/>
-                                    <constraint firstItem="gEb-dc-aSI" firstAttribute="top" secondItem="Qgo-VJ-HA4" secondAttribute="top" id="NdE-e8-T5f"/>
-                                    <constraint firstAttribute="bottom" secondItem="gEb-dc-aSI" secondAttribute="bottom" id="mxL-zS-2wj"/>
-                                </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="gEb-dc-aSI" id="qh7-7l-gUT"/>
-                                    <segue destination="DHe-YM-Cup" kind="show" id="vSn-ek-mob"/>
+                                    <segue destination="DHe-YM-Cup" kind="show" identifier="show" id="1hB-OK-9Xq"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -76,38 +66,26 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTk-Ei-lJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1388" y="649.92503748125944"/>
+            <point key="canvasLocation" x="1377" y="650"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="QR9-Zk-PUL">
             <objects>
-                <tableViewController id="DHe-YM-Cup" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="det-vG-grN">
+                <tableViewController id="DHe-YM-Cup" customClass="DetailViewController" customModule="Giffel" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="det-vG-grN">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95661741495132446" green="0.96063953638076782" blue="0.97295886278152466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="L88-HA-Bii">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <sections>
                             <tableViewSection id="YMJ-DF-AU0">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="240" id="0Fi-qg-Azy">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Fi-qg-Azy" id="mpU-cF-uqT">
-                                            <frame key="frameInset" width="375" height="240"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="nY6-Tx-S5A"/>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="nY6-Tx-S5A" secondAttribute="bottom" id="AvP-EG-4Y8"/>
-                                                <constraint firstAttribute="trailing" secondItem="nY6-Tx-S5A" secondAttribute="trailing" id="bcx-Tk-jKP"/>
-                                                <constraint firstItem="nY6-Tx-S5A" firstAttribute="leading" secondItem="mpU-cF-uqT" secondAttribute="leading" id="gam-dM-dzC"/>
-                                                <constraint firstItem="nY6-Tx-S5A" firstAttribute="top" secondItem="mpU-cF-uqT" secondAttribute="top" id="rFN-h4-Apa"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="7h2-pI-4Wh">
-                                        <rect key="frame" x="0.0" y="240" width="375" height="88"/>
+                                        <rect key="frame" x="0.0" y="200" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7h2-pI-4Wh" id="XEC-7z-6Hf">
                                             <frame key="frameInset" width="375" height="88"/>
@@ -153,7 +131,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="198" id="9Ms-mQ-VUk">
-                                        <rect key="frame" x="0.0" y="328" width="375" height="198"/>
+                                        <rect key="frame" x="0.0" y="288" width="375" height="198"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Ms-mQ-VUk" id="Yd8-E8-bdH">
                                             <frame key="frameInset" width="375" height="198"/>
@@ -205,10 +183,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwx-Jo-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2160.8000000000002" y="646.32683658170924"/>
+            <point key="canvasLocation" x="2159" y="650"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="image" width="4356" height="2904"/>
-    </resources>
 </document>
