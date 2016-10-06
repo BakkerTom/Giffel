@@ -47,12 +47,8 @@ class DetailViewController: UITableViewController {
         let shareURL: NSURL = NSURL(string: gifToShare)!
         let shareData: NSData = NSData(contentsOf: shareURL as URL)!
         let firstActivityItem: Array = [shareData]
-        //let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: firstActivityItem, applicationActivities: nil)
-        //self.present(activityViewController, animated: true, completion: nil)
-        
-        // Removed Cast to AnyObject
-        //let objectsToShare = [gifToShare]
-        
+
+                
         //Removed cast to AnyObject in the Function Call to get rid of error from removing it above
         let activityVC = UIActivityViewController(activityItems: firstActivityItem , applicationActivities: nil)
         
@@ -60,11 +56,21 @@ class DetailViewController: UITableViewController {
         //Moved cast for as! UIView outside the perantheses of sender so
         //that the as! can be used more efficiently. But most importantly
         // I changed the as! to a as? instead thinking that might catch an error and it did... so this works.
-        
         activityVC.popoverPresentationController?.sourceView = (sender) as UIView
         self.present(activityVC, animated: true, completion: nil)
     }
 
+    @IBAction func btnCopyGifURL(_ sender: UIButton) {
+        let gifToShare = "https:" + (selectedGif?.imageUrl)!
+        UIPasteboard.general.string = gifToShare
+        
+        let alertController = UIAlertController(title: "Gelukt!", message:
+            "U heeft de URL naar de gif succesvol naar Uw klembord gekopieerd!", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
