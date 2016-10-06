@@ -1,24 +1,27 @@
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/1567433/13918338/f8670eea-ef7f-11e5-814d-f15bdfd6b2c0.png" height="180"/>
 
 <p align="center">
-<a href="https://cocoapods.org"><img src="https://img.shields.io/cocoapods/v/Nuke.svg"></a>
+<a href="https://travis-ci.org/kean/Nuke"><img src="https://img.shields.io/travis/kean/Nuke/master.svg"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
+<a href="https://swift.org/package-manager/"><img src="https://img.shields.io/badge/SPM-ready-orange.svg"></a>
+<a href="https://cocoapods.org"><img src="https://img.shields.io/cocoapods/v/Nuke.svg"></a>
 <a href="http://cocoadocs.org/docsets/Nuke"><img src="https://img.shields.io/cocoapods/p/Nuke.svg?style=flat)"></a>
 </p>
 
-A powerful **image loading** and **caching** framework which allows for hassle-free image loading in your app - often in one line of code. Nuke pulls together **stable**, **mature** libraries from Swift ecosystem into **simple**, **lightweight** package that lets you focus on getting things done.
-
+A powerful **image loading** and **caching** framework which allows for hassle-free image loading in your app - often in one line of code.
 
 ## <a name="h_features"></a>Features
+
+Nuke pulls together **stable**, **mature** libraries from Swift ecosystem into **simple**, **lightweight** package that lets you focus on getting things done.
 
 - Simple and expressive API, zero configuration required
 - Hassle-free image loading into image views and other targets
 - Two [cache layers](https://kean.github.io/blog/image-caching) including LRU memory cache
-- Extandable image transformations
+- Extensible image transformations
 - [Freedom to use](#h_design) networking, caching libraries of your choice
-- [Alamofire](https://github.com/kean/Nuke-Alamofire-Plugin) and [FLAnimatedImage](https://github.com/kean/Nuke-AnimatedImage-Plugin) plugins
+- Plugins: [Alamofire](https://github.com/kean/Nuke-Alamofire-Plugin), [FLAnimatedImage](https://github.com/kean/Nuke-AnimatedImage-Plugin), [Toucan](https://github.com/kean/Nuke-Toucan-Plugin)
 - Automated [prefetching](https://kean.github.io/blog/image-preheating) with [Preheat](https://github.com/kean/Preheat) library
-- Peformant, supports large (or infinite) collection views of images
+- [**Fast**](https://github.com/kean/Image-Frameworks-Benchmark), supports large collection views of images
 - Comprehensive test coverage
 
 
@@ -35,7 +38,7 @@ Upgrading from the previous version? Use a [migration guide](https://github.com/
 
 #### Loading Images
 
-Nuke allows for hassle-free image loading into image views (and other arbitrary targets).
+Nuke allows for hassle-free image loading into image views and other targets.
 
 ```swift
 Nuke.loadImage(with: url, into: imageView)
@@ -43,15 +46,15 @@ Nuke.loadImage(with: url, into: imageView)
 
 #### Reusing Views
 
+`Nuke.loadImage(with:into:)` method cancels previous outstanding request associated with the target. No need to implement `prepareForReuse`. The requests also get cancelled automatically when the target deallocates (Nuke holds a weak reference to a target).
+
 ```swift
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    // View reusing is handled automatically
     Nuke.loadImage(with: url, into: cell.imageView)
 }
 ```
 
-Nuke cancels outstanding requests when the image view is reused (or deallocated). You can also (optionally) implement `collectionView(didEndDisplaying:forItemAt:)` method to cancel
-the requests as soon as the cell goes of screen.
+You can also (optionally) implement `collectionView(didEndDisplaying:forItemAt:)` method to cancel the request as soon as the cell goes off screen:
 
 ```swift
 func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -81,6 +84,17 @@ request.memoryCacheOptions.writeAllowed = false
 Nuke.loadImage(with: request, into: imageView)
 ```
 
+#### Custom Handler
+
+Nuke has a flexible `loadImage(with request: Request, into target: AnyObject, handler: @escaping Handler)` method in which target is a simple reuse token. It doesn't do anything after the image is loaded, you have full control. Here's one simple way to use it:
+
+```swift
+indicator.startAnimating()
+Nuke.loadImage(with: request, into: view) { [weak view] in
+    view?.handle(response: $0, isFromMemoryCache: $1)
+    indicator.stopAnimating()
+}
+```
 
 #### Processing Images
 
@@ -101,6 +115,7 @@ struct GaussianBlur: Processing {
 }
 ```
 
+> Check out [Toucan plugin](https://github.com/kean/Nuke-Toucan-Plugin) for some useful image transformations
 
 #### Preheating Images
 
@@ -131,6 +146,7 @@ controller.handler = { addedIndexPaths, removedIndexPaths in
 }
 ```
 
+> Check out [Performance Guide](https://github.com/kean/Nuke/blob/master/Documentation/Guides/Performance%20Guide.md) to see what else you can do to improve performance
 
 #### Loading Images Directly
 
@@ -145,13 +161,17 @@ Loader.shared.loadImage(with: url, token: cts.token)
 
 ## Plugins<a name="h_plugins"></a>
 
-#### [Alamofire Plugin](https://github.com/kean/Nuke-Alamofire-Plugin)
+### [Alamofire Plugin](https://github.com/kean/Nuke-Alamofire-Plugin)
 
 Allows you to replace networking layer with [Alamofire](https://github.com/Alamofire/Alamofire). Combine the power of both frameworks!
 
-#### [FLAnimatedImage Plugin](https://github.com/kean/Nuke-AnimatedImage-Plugin)
+### [FLAnimatedImage Plugin](https://github.com/kean/Nuke-AnimatedImage-Plugin)
 
 [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) plugin allows you to load and display animated GIFs with [smooth scrolling performance](https://www.youtube.com/watch?v=fEJqQMJrET4) and low memory footprint.
+
+### [Toucan Plugin](https://github.com/kean/Nuke-Toucan-Plugin)
+
+[Toucan](https://github.com/gavinbunney/Toucan) plugin provides a simple API for processing images. It supports resizing, cropping, rounded rect masking and more.
 
 
 ## Design<a name="h_design"></a>
@@ -161,7 +181,7 @@ Nuke is designed to support and leverage dependency injection. It consists of a 
 |Protocol|Description|
 |--------|-----------|
 |`Loading`|Loads images|
-|`DataLoading`|Loads data|
+|`DataLoading`|Downloads data|
 |`DataCaching`|Stores data into disk cache|
 |`DataDecoding`|Converts data into image objects|
 |`Processing`|Image transformations|
