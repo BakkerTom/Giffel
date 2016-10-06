@@ -6,9 +6,9 @@ target 'Giffel' do
   use_frameworks!
 
   # Pods for Giffel
-  pod 'Alamofire', '~> 4.0'
-  pod 'Nuke', '~> 4.0'
-  pod "Nuke-FLAnimatedImage-Plugin"
+  pod 'Alamofire', '~> 4.0.1'
+  pod 'Nuke', '~> 4.1.1'
+  pod "Nuke-FLAnimatedImage-Plugin" ~> '1.0.0'
 
   target 'GiffelTests' do
     inherit! :search_paths
