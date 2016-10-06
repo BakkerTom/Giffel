@@ -10,17 +10,25 @@ import Foundation
 public final class CancellationTokenSource {
     public private(set) var isCancelling = false
     private var observers = [(Void) -> Void]()
-    private let queue = DispatchQueue(label: "com.github.kean.Nuke.CancellationToken")
+    private let lock: Lock
     
     public var token: CancellationToken {
         return CancellationToken(source: self)
     }
     
-    public init() {}
+    public init() {
+        self.lock = Lock()
+    }
+    
+    // Allows to create cts with a shared mutex to avoid excessive allocations.
+    // This optimization gives you small wins in absolute numbers. It's also
+    // tricky to get right thus `internal` access modifier.
+    internal init(lock: Lock) { self.lock = lock }
+    internal static let lock = Lock()
     
     fileprivate func register(_ closure: @escaping (Void) -> Void) {
         if isCancelling { closure(); return } // fast pre-lock check
-        queue.sync {
+        lock.sync {
             if isCancelling {
                 closure()
             } else {
@@ -32,7 +40,7 @@ public final class CancellationTokenSource {
     /// Communicates a request for cancellation to the managed token.
     public func cancel() {
         if isCancelling { return } // fast pre-lock check
-        queue.sync {
+        lock.sync {
             if !isCancelling {
                 isCancelling = true
                 observers.forEach { $0() }

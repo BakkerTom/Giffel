@@ -28,11 +28,23 @@ public func loadImage(with request: Request, into target: Target) {
     Manager.shared.loadImage(with: request, into: target)
 }
 
-/// Loads an image into the given target and calls the given `handler`.
+/// Loads an image and calls the given `handler`.
+///
+/// For more info see `loadImage(with:into:handler:)` method of `Manager`.
+public func loadImage(with url: URL, into target: AnyObject, handler: @escaping Manager.Handler) {
+    Manager.shared.loadImage(with: url, into: target, handler: handler)
+}
+
+/// Loads an image and calls the given `handler`.
 ///
 /// For more info see `loadImage(with:into:handler:)` method of `Manager`.
 public func loadImage(with request: Request, into target: AnyObject, handler: @escaping Manager.Handler) {
     Manager.shared.loadImage(with: request, into: target, handler: handler)
+}
+
+/// Cancels an outstanding request associated with the target.
+public func cancelRequest(for target: AnyObject) {
+    Manager.shared.cancelRequest(for: target)
 }
 
 public extension Manager {
@@ -53,4 +65,28 @@ public extension Loader {
 public extension Cache {
     /// Shared `Cache` instance.
     public static var shared = Cache()
+}
+
+internal final class Lock {
+    var mutex = UnsafeMutablePointer<pthread_mutex_t>.allocate(capacity: 1)
+    
+    init() {
+        pthread_mutex_init(mutex, nil)
+    }
+    
+    deinit {
+        pthread_mutex_destroy(mutex)
+        mutex.deinitialize()
+        mutex.deallocate(capacity: 1)
+    }
+    
+    /// In critical places it's better to use lock() and unlock() manually
+    func sync<T>(_ closure: (Void) -> T) -> T {
+        pthread_mutex_lock(mutex)
+        defer { pthread_mutex_unlock(mutex) }
+        return closure()
+    }
+    
+    func lock() { pthread_mutex_lock(mutex) }
+    func unlock() { pthread_mutex_unlock(mutex) }
 }

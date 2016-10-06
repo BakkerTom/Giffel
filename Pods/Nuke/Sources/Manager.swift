@@ -7,10 +7,12 @@ import Foundation
 /// Loads images into the given targets.
 ///
 /// All methods should be called on the main thread.
-public class Manager {
+public final class Manager {
     public let loader: Loading
     public let cache: Caching?
-    
+
+    private let queue = DispatchQueue(label: "com.github.kean.Nuke.Manager")
+
     /// Initializes the `Manager` with the image loader and the memory cache.
     /// - parameter cache: `nil` by default.
     public init(loader: Loading, cache: Caching? = nil) {
@@ -34,9 +36,9 @@ public class Manager {
     
     public typealias Handler = (Response, _ isFromMemoryCache: Bool) -> Void
     
-    /// Loads an image into the given target and calls the given `handler`.
-    /// The handler only gets called if the request is still associated with
-    /// the target by the time it's completed.
+    /// Loads an image and calls the given `handler`. The handler only gets
+    /// called if the request is still associated with the target by the time
+    /// it's completed.
     ///
     /// See `loadImage(with:into:)` method for more info.
     public func loadImage(with request: Request, into target: AnyObject, handler: @escaping Handler) {
@@ -49,16 +51,19 @@ public class Manager {
         if request.memoryCacheOptions.readAllowed, let image = cache?[request] {
             handler(.fulfilled(image), true)
         } else {
-            let cts = CancellationTokenSource()
+            let cts = CancellationTokenSource(lock: CancellationTokenSource.lock)
             let context = Context(cts)
             
             Manager.setContext(context, for: target)
-            
-            loader.loadImage(with: request, token: cts.token).completion { [weak context, weak target] in
-                guard let context = context, let target = target else { return }
-                guard Manager.getContext(for: target) === context else { return }
-                handler($0, false)
-                context.cts = nil // avoid redundant cancellations
+
+            queue.async {
+                guard !cts.isCancelling else { return } // fast preflight check
+                self.loader.loadImage(with: request, token: cts.token).completion { [weak context, weak target] in
+                    guard let context = context, let target = target else { return }
+                    guard Manager.getContext(for: target) === context else { return }
+                    handler($0, false)
+                    context.cts = nil // avoid redundant cancellations on deinit
+                }
             }
         }
     }
@@ -93,9 +98,17 @@ public class Manager {
 private var contextAK = "Manager.Context.AssociatedKey"
 
 public extension Manager {
-    /// Loads an image into the given target.
+    /// Loads an image into the given target. See the corresponding
+    /// `loadImage(with:into)` method that takes `Request` for more info.
     public func loadImage(with url: URL, into target: Target) {
         loadImage(with: Request(url: url), into: target)
+    }
+
+    /// Loads an image and calls the given `handler`.
+    /// See the corresponding `loadImage(with:into:handler:)` method that
+    /// takes `Request` for more info.
+    public func loadImage(with url: URL, into target: AnyObject, handler: @escaping Handler) {
+        loadImage(with: Request(url: url), into: target, handler: handler)
     }
 }
 

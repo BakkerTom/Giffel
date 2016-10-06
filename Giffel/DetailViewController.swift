@@ -16,7 +16,6 @@ class DetailViewController: UITableViewController {
     let imageView: AnimatedImageView = AnimatedImageView()
     var headerView: UIView!
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,11 +40,28 @@ class DetailViewController: UITableViewController {
         
     }
 
+    @IBAction func btnShare(_ sender: UIButton) {
+        // Changed attributedText to text!
+        let textToShare = "https:" + (selectedGif?.imageUrl)!
+        
+        // Removed Cast to AnyObject
+        let objectsToShare = [textToShare]
+        
+        //Removed cast to AnyObject in the Function Call to get rid of error from removing it above
+        let activityVC = UIActivityViewController(activityItems: objectsToShare , applicationActivities: nil)
+        
+        
+        //Moved cast for as! UIView outside the perantheses of sender so
+        //that the as! can be used more efficiently. But most importantly
+        // I changed the as! to a as? instead thinking that might catch an error and it did... so this works.
+        
+        activityVC.popoverPresentationController?.sourceView = (sender) as UIView
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-
+        
 }

@@ -30,14 +30,14 @@ public final class Cache: Caching {
     // We don't use `NSCache` because it's not LRU
     
     private var map = [AnyHashable: Node<CachedImage>]()
-    private var list = LinkedList<CachedImage>()
-    private let queue = DispatchQueue(label: "com.github.kean.Nuke.Cache")
-
+    private let list = LinkedList<CachedImage>()
+    private let lock = Lock()
+    
     /// The maximum total cost that the cache can hold.
-    public var costLimit: Int { didSet { trim() } }
+    public var costLimit: Int { didSet { lock.sync { trim() } } }
     
     /// The maximum number of items that the cache can hold.
-    public var countLimit: Int { didSet { trim() } }
+    public var countLimit: Int { didSet { lock.sync { trim() } } }
     
     /// The total cost of items in the cache.
     public private(set) var totalCost = 0
@@ -73,24 +73,26 @@ public final class Cache: Caching {
     /// Accesses the image associated with the given key.
     public subscript(key: AnyHashable) -> Image? {
         get {
-            return queue.sync {
-                if let node = map[key] {
-                    // bubble node up to the head
-                    list.remove(node)
-                    list.append(node)
-                    return node.value.image
-                }
-                return nil
+            lock.lock()  // faster than `sync()`
+            defer { lock.unlock() }
+            
+            if let node = map[key] {
+                // bubble node up to the head
+                list.remove(node)
+                list.append(node)
+                return node.value.image
             }
+            return nil
         }
         set {
-            queue.sync {
-                if let image = newValue {
-                    add(node: Node(value: CachedImage(image: image, cost: cost(image), key: key)))
-                    trim()
-                } else if let node = map[key] {
-                    remove(node: node)
-                }
+            lock.lock() // faster than `sync()`
+            defer { lock.unlock() }
+            
+            if let image = newValue {
+                add(node: Node(value: CachedImage(image: image, cost: cost(image), key: key)))
+                trim()
+            } else if let node = map[key] {
+                remove(node: node)
             }
         }
     }
@@ -109,7 +111,7 @@ public final class Cache: Caching {
     
     /// Removes all cached images.
     public dynamic func removeAll() {
-        queue.sync {
+        lock.sync {
             map.removeAll()
             list.removeAll()
             totalCost = 0
@@ -117,8 +119,8 @@ public final class Cache: Caching {
     }
     
     private func trim() {
-        trim(toCost: costLimit)
-        trim(toCount: countLimit)
+        _trim(toCost: costLimit)
+        _trim(toCount: countLimit)
     }
     
     private dynamic func didEnterBackground() {
@@ -126,22 +128,34 @@ public final class Cache: Caching {
         // This behaviour is similar to `NSCache` (which removes all
         // items). This feature is not documented and may be subject
         // to change in future Nuke versions.
-        trim(toCost: Int(Double(costLimit) * 0.1))
-        trim(toCount: Int(Double(countLimit) * 0.1))
+        lock.sync {
+            _trim(toCost: Int(Double(costLimit) * 0.1))
+            _trim(toCount: Int(Double(countLimit) * 0.1))
+        }
     }
     
     /// Removes least recently used items from the cache until the total cost
     /// of the remaining items is less than the given cost limit.
     public func trim(toCost limit: Int) {
-        while totalCost > limit, let node = list.tail { // least recently used
-            remove(node: node)
-        }
+        lock.sync { _trim(toCost: limit) }
+    }
+    
+    private func _trim(toCost limit: Int) {
+        trim(while: { totalCost > limit })
     }
     
     /// Removes least recently used items from the cache until the total count
     /// of the remaining items is less than the given count limit.
     public func trim(toCount limit: Int) {
-        while totalCount > limit, let node = list.tail { // least recently used
+        lock.sync { _trim(toCount: limit) }
+    }
+    
+    private func _trim(toCount limit: Int) {
+        trim(while: { totalCount > limit })
+    }
+    
+    private func trim(while condition: (Void) -> Bool) {
+        while condition(), let node = list.tail { // least recently used
             remove(node: node)
         }
     }
@@ -164,10 +178,12 @@ private struct CachedImage {
 }
 
 /// Basic doubly linked list.
-private class LinkedList<V> {
+private final class LinkedList<V> {
     // head <-> node <-> ... <-> tail
     private(set) var head: Node<V>?
     private(set) var tail: Node<V>?
+    
+    deinit { removeAll() }
     
     /// Appends node to the head.
     func append(_ node: Node<V>) {
@@ -191,12 +207,19 @@ private class LinkedList<V> {
     }
     
     func removeAll() {
+        // Here's a clever trick to avoid recursive Nodes deallocation
+        var node = tail
+        while let previous = node?.previous {
+            previous.next = nil
+            node = previous
+        }
+        
         head = nil
         tail = nil
     }
 }
 
-private class Node<V> {
+private final class Node<V> {
     let value: V
     var next: Node<V>?
     weak var previous: Node<V>?
