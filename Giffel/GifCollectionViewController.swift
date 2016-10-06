@@ -15,19 +15,27 @@ private let reuseIdentifier = "Cell"
 class GifCollectionViewController: UICollectionViewController {
     
     private var gifs = [Gif]()
+    var tag: Tag?
     var manager = Nuke.Manager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        GiffelAPI.retrievePopular { (results) -> (Void) in
-            self.gifs = results
-            self.collectionView?.reloadData()
+        if tag != nil {
+            GiffelAPI.retrieveGifsWith(tag: tag!.name, completion: { (results) -> (Void) in
+                self.gifs = results
+                self.collectionView?.reloadData()
+            })
+            
+            self.title = tag?.name
+        } else {
+            GiffelAPI.retrievePopular { (results) -> (Void) in
+                self.gifs = results
+                self.collectionView?.reloadData()
+            }
         }
         
-        GiffelAPI.retrievePopular { (results) -> (Void) in
         
-        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

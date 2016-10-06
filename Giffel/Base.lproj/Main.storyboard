@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w9t-bB-glP">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w9t-bB-glP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -10,7 +10,7 @@
         <scene sceneID="Nn2-sl-0Br">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fNW-XY-a81" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Populair" id="4Qx-2l-AIz"/>
+                    <tabBarItem key="tabBarItem" title="Populair" image="fire" id="4Qx-2l-AIz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="WuH-kB-BR0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -36,7 +36,7 @@
             <objects>
                 <collectionViewController id="Me8-eN-l9P" customClass="GifCollectionViewController" customModule="Giffel" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="5IA-hm-YhQ">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95661741495132446" green="0.96063953638076782" blue="0.97295886278152466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="h1M-m1-p6h">
@@ -50,7 +50,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="188" height="180"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                                 <connections>
@@ -63,78 +63,72 @@
                             <outlet property="delegate" destination="Me8-eN-l9P" id="qpu-FN-Y8v"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="GIFFEL" id="VWD-0j-FmC"/>
+                    <navigationItem key="navigationItem" title="GIFFEL" id="VWD-0j-FmC">
+                        <barButtonItem key="backBarButtonItem" title="Populair" id="38x-vN-Yq4"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTk-Ei-lJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="-147"/>
-        </scene>
-        <!--GIFFEL-->
-        <scene sceneID="5JQ-0K-k7v">
-            <objects>
-                <tableViewController id="IhC-5a-Wpw" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="AsH-pw-5pM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Mac-ST-Mgd">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mac-ST-Mgd" id="dZX-oe-AjN">
-                                    <frame key="frameInset" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="IhC-5a-Wpw" id="ovE-Nr-9Mk"/>
-                            <outlet property="delegate" destination="IhC-5a-Wpw" id="hhB-YC-3qx"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="GIFFEL" id="T2D-kx-4Dk"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GDQ-72-jFV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2316" y="626"/>
+            <point key="canvasLocation" x="3684" y="-147"/>
         </scene>
         <!--Favorieten-->
         <scene sceneID="Na8-6Z-eKh">
             <objects>
                 <navigationController id="egj-Pi-LeB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorieten" id="qzA-xO-bCC"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bsX-FW-a07">
+                    <tabBarItem key="tabBarItem" title="Favorieten" image="heart" id="qzA-xO-bCC"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bsX-FW-a07">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.65490196079999996" green="0.45098039220000002" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" red="0.29803921570000003" green="0.30980392159999998" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="IhC-5a-Wpw" kind="relationship" relationship="rootViewController" id="lWt-Ze-7lB"/>
+                        <segue destination="BqF-P9-qLn" kind="relationship" relationship="rootViewController" id="aAk-f4-hlq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTM-3S-KBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1465" y="626"/>
+            <point key="canvasLocation" x="1465" y="1523"/>
         </scene>
-        <!--GIFFEL-->
+        <!--Ontdekken-->
         <scene sceneID="03O-Er-SDA">
             <objects>
-                <tableViewController id="tZ3-1h-wPW" sceneMemberID="viewController">
+                <tableViewController id="tZ3-1h-wPW" customClass="DiscoverViewController" customModule="Giffel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="k6q-q5-Yy1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XZ2-1V-qYS">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tagCell" textLabel="qAf-Ff-mrP" detailTextLabel="3ow-uH-keX" style="IBUITableViewCellStyleValue1" id="XZ2-1V-qYS">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XZ2-1V-qYS" id="9X0-jy-lEc">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qAf-Ff-mrP">
+                                            <frame key="frameInset" minX="15" minY="12" width="35.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" red="0.29803921568627451" green="0.30980392156862746" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3ow-uH-keX">
+                                            <frame key="frameInset" minX="316" minY="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.64313725490196072" green="0.66666666666666663" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Me8-eN-l9P" kind="show" id="Mag-Jy-hyp"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -142,22 +136,24 @@
                             <outlet property="delegate" destination="tZ3-1h-wPW" id="ZH1-WQ-iaY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="GIFFEL" id="5Vd-p0-Mmi"/>
+                    <navigationItem key="navigationItem" title="Ontdekken" id="5Vd-p0-Mmi"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAw-MP-7Az" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="1408"/>
+            <point key="canvasLocation" x="2433" y="650"/>
         </scene>
         <!--Ontdekken-->
         <scene sceneID="kaQ-Vc-D4k">
             <objects>
                 <navigationController id="iGZ-I9-Vbs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ontdekken" id="QGj-fl-0ew"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sk2-DI-Wzu">
+                    <tabBarItem key="tabBarItem" title="Ontdekken" image="compass" id="QGj-fl-0ew"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Sk2-DI-Wzu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.65490196079999996" green="0.45098039220000002" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" red="0.29803921570000003" green="0.30980392159999998" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -167,14 +163,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElT-OT-6bv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1465" y="1408"/>
+            <point key="canvasLocation" x="1678" y="650"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="QR9-Zk-PUL">
             <objects>
                 <tableViewController id="DHe-YM-Cup" customClass="DetailViewController" customModule="Giffel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="det-vG-grN">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95661741495132446" green="0.96063953638076782" blue="0.97295886278152466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="L88-HA-Bii">
@@ -290,16 +286,20 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwx-Jo-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3097" y="-147"/>
+            <point key="canvasLocation" x="4294" y="844"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HpY-5u-9f5">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="w9t-bB-glP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="ozu-LT-XHx">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="ozu-LT-XHx">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.65490196079999996" green="0.45098039220000002" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.65490196079999996" green="0.45098039220000002" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="fNW-XY-a81" kind="relationship" relationship="viewControllers" id="Quw-8T-Cgl"/>
@@ -311,5 +311,52 @@
             </objects>
             <point key="canvasLocation" x="525.60000000000002" y="649.92503748125944"/>
         </scene>
+        <!--Favorieten-->
+        <scene sceneID="UJS-R7-EFQ">
+            <objects>
+                <collectionViewController id="BqF-P9-qLn" customClass="GifCollectionViewController" customModule="Giffel" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="3mT-vu-QT4">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.95661741499999997" green="0.96063953639999999" blue="0.97295886279999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="neg-Na-OJo">
+                            <size key="itemSize" width="187.5" height="180"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="x51-rl-RNM" customClass="GifCollectionViewCell" customModule="Giffel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="180"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                                <connections>
+                                    <segue destination="DHe-YM-Cup" kind="show" id="4dr-Ba-9vS"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="BqF-P9-qLn" id="ax9-gZ-QAP"/>
+                            <outlet property="delegate" destination="BqF-P9-qLn" id="Hnc-rk-PHI"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Favorieten" id="mdk-WD-H0u"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X8G-gq-XW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2433" y="1522"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="compass" width="25" height="25"/>
+        <image name="fire" width="20" height="26"/>
+        <image name="heart" width="25" height="22"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4dr-Ba-9vS"/>
+        <segue reference="ZDd-15-1wj"/>
+    </inferredMetricsTieBreakers>
 </document>
