@@ -40,15 +40,21 @@ class DetailViewController: UITableViewController {
         
     }
 
-    @IBAction func btnShare(_ sender: UIButton) {
-        // Changed attributedText to text!
-        let textToShare = "https:" + (selectedGif?.imageUrl)!
+    @IBAction func btnShareGif(_ sender: UIButton) {
+        // Changed attributdText to text!
+        let gifToShare = "https:" + (selectedGif?.imageUrl)!
+        
+        let shareURL: NSURL = NSURL(string: gifToShare)!
+        let shareData: NSData = NSData(contentsOf: shareURL as URL)!
+        let firstActivityItem: Array = [shareData]
+        //let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: firstActivityItem, applicationActivities: nil)
+        //self.present(activityViewController, animated: true, completion: nil)
         
         // Removed Cast to AnyObject
-        let objectsToShare = [textToShare]
+        //let objectsToShare = [gifToShare]
         
         //Removed cast to AnyObject in the Function Call to get rid of error from removing it above
-        let activityVC = UIActivityViewController(activityItems: objectsToShare , applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: firstActivityItem , applicationActivities: nil)
         
         
         //Moved cast for as! UIView outside the perantheses of sender so
@@ -58,6 +64,7 @@ class DetailViewController: UITableViewController {
         activityVC.popoverPresentationController?.sourceView = (sender) as UIView
         self.present(activityVC, animated: true, completion: nil)
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -105,7 +105,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="btnShare:" destination="DHe-YM-Cup" eventType="touchUpInside" id="Hbu-im-bOi"/>
+                                                                <action selector="btnShareGif:" destination="DHe-YM-Cup" eventType="touchUpInside" id="CRp-01-vpq"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bij-pw-g3r">
