@@ -17,32 +17,26 @@ class GifCollectionViewController: UICollectionViewController {
     private var gifs = [Gif]()
     var tag: Tag?
     var manager = Nuke.Manager.shared
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if tag != nil {
-            GiffelAPI.retrieveGifsWith(tag: tag!.name, completion: { (results) -> (Void) in
-                self.gifs = results
-                self.collectionView?.reloadData()
-            })
-            
-            self.title = tag?.name
-        } else {
-            GiffelAPI.retrievePopular { (results) -> (Void) in
-                self.gifs = results
-                self.collectionView?.reloadData()
-            }
-        }
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
         collectionView?.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // Do any additional setup after loading the view.
+        loadData()
+        
+        // Add refreshControl to Table View
+        if #available(iOS 10.0, *) {
+            collectionView?.refreshControl = refreshControl
+        } else {
+            collectionView?.addSubview(refreshControl)
+        }
+        
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +44,23 @@ class GifCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func loadData(){
+        if tag != nil {
+            GiffelAPI.retrieveGifsWith(tag: tag!.name, completion: { (results) -> (Void) in
+                self.gifs = results
+                self.collectionView?.reloadData()
+                self.refreshControl.endRefreshing()
+            })
+            
+            self.title = tag?.name
+        } else {
+            GiffelAPI.retrievePopular { (results) -> (Void) in
+                self.gifs = results
+                self.collectionView?.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
 
     // MARK: - Navigation
 
