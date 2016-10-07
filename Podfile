@@ -9,6 +9,7 @@ target 'Giffel' do
   pod 'Alamofire', '~> 4.0.1'
   pod 'Nuke', '~> 4.1.1'
   pod 'Nuke-FLAnimatedImage-Plugin'
+  pod 'TagListView', '~> 1.0.1'
 
   target 'GiffelTests' do
     inherit! :search_paths
