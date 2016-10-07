@@ -5,21 +5,31 @@ PODS:
   - Nuke-FLAnimatedImage-Plugin (2.0):
     - FLAnimatedImage (~> 1.0)
     - Nuke
-  - TagListView (1.0.1)
+  - TagListView (1.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.1)
   - Nuke (~> 4.1.1)
   - Nuke-FLAnimatedImage-Plugin
-  - TagListView (~> 1.0.1)
+  - TagListView (from `git@github.com:xhacker/TagListView.git`, branch `master`)
+
+EXTERNAL SOURCES:
+  TagListView:
+    :branch: master
+    :git: git@github.com:xhacker/TagListView.git
+
+CHECKOUT OPTIONS:
+  TagListView:
+    :commit: 2f3bf75443d69ccf4ef38f853cf327ebd5c6dd2c
+    :git: git@github.com:xhacker/TagListView.git
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   Nuke: e334bd9834f380951237e880f084c93846fdc36c
   Nuke-FLAnimatedImage-Plugin: 0cc0d6f4b32161fb1ad8714b86335f4145c05f60
-  TagListView: cd871de4ab3ae4c4c67a2e67f6503ea6fc55c2a6
+  TagListView: 6bf4bded034c4c90b1e90d8cd3d8e1d852dba0a8
 
-PODFILE CHECKSUM: e2e9f8ef8bd7d2babc23b78ee2a7d1b008aa4ddd
+PODFILE CHECKSUM: e89b1e90955d26734b4fcabcefdfc2ddefed3314
 
 COCOAPODS: 1.1.0.rc.2

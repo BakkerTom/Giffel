@@ -24,7 +24,6 @@ tagListView.textFont = UIFont.systemFontOfSize(24)
 tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
 
 tagListView.addTag("TagListView")
-tagListView.insertTag("This should be the second tag", atIndex: 1)
 
 tagListView.removeTag("meow") // all tags with title “meow” will be removed
 tagListView.removeAllTags()
@@ -73,9 +72,11 @@ github "xhacker/TagListView" ~> 1.0
 
 Or drag **TagListView** folder into your project.
 
-### Swift 1.2?
+### Older Swift Versions?
 
-Use [0.2](https://github.com/xhacker/TagListView/releases/tag/0.2), which is compatible with Swift 1.2.
+Currently, the `master` branch is using Swift 3.0.
+
+For Swift 2, use version [1.0.1](https://github.com/xhacker/TagListView/releases/tag/1.0.1) or [swift-2.3](https://github.com/xhacker/TagListView/tree/swift-2.3) branch. For Swift 1.2, use version [0.2](https://github.com/xhacker/TagListView/releases/tag/0.2).
 
 ## Contribution
 
