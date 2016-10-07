@@ -15,6 +15,8 @@
 		E2042EF81D93E57E00D2CC65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2042EF61D93E57E00D2CC65 /* LaunchScreen.storyboard */; };
 		E2042F031D93E57E00D2CC65 /* GiffelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2042F021D93E57E00D2CC65 /* GiffelTests.swift */; };
 		E20ACB661DA44DD8001C9AB4 /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20ACB651DA44DD8001C9AB4 /* GifCollectionViewCell.swift */; };
+		E23F7C851DA687540098AD4B /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F7C841DA687540098AD4B /* DiscoverViewController.swift */; };
+		E23F7C881DA6D2F40098AD4B /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F7C871DA6D2F40098AD4B /* Tag.swift */; };
 		E240B8891DA4160200EE05F6 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B8881DA4160200EE05F6 /* Gif.swift */; };
 		E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */; };
 		E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */; };
@@ -48,6 +50,8 @@
 		E2042F021D93E57E00D2CC65 /* GiffelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiffelTests.swift; sourceTree = "<group>"; };
 		E2042F041D93E57E00D2CC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E20ACB651DA44DD8001C9AB4 /* GifCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewCell.swift; sourceTree = "<group>"; };
+		E23F7C841DA687540098AD4B /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		E23F7C871DA6D2F40098AD4B /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		E240B8881DA4160200EE05F6 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiffelAPI.swift; sourceTree = "<group>"; };
 		E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewController.swift; sourceTree = "<group>"; };
@@ -140,8 +144,10 @@
 		E240B88A1DA4173600EE05F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E20ACB651DA44DD8001C9AB4 /* GifCollectionViewCell.swift */,
 				E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */,
 				E240B8881DA4160200EE05F6 /* Gif.swift */,
+				E23F7C871DA6D2F40098AD4B /* Tag.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -151,7 +157,7 @@
 			children = (
 				E2FFE2BF1DA5538F0031C823 /* DetailViewController.swift */,
 				E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */,
-				E20ACB651DA44DD8001C9AB4 /* GifCollectionViewCell.swift */,
+				E23F7C841DA687540098AD4B /* DiscoverViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -360,8 +366,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E23F7C881DA6D2F40098AD4B /* Tag.swift in Sources */,
 				E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */,
 				E20ACB661DA44DD8001C9AB4 /* GifCollectionViewCell.swift in Sources */,
+				E23F7C851DA687540098AD4B /* DiscoverViewController.swift in Sources */,
 				E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */,
 				E2FFE2C01DA553900031C823 /* DetailViewController.swift in Sources */,
 				E2042EEE1D93E57E00D2CC65 /* AppDelegate.swift in Sources */,
