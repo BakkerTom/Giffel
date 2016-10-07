@@ -244,13 +244,52 @@
                                             <frame key="frameInset" width="375" height="198"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggq-ZR-5Q0" customClass="TagListView" customModule="TagListView"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggq-ZR-5Q0" customClass="TagListView" customModule="TagListView">
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                                            <real key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                            <color key="value" red="0.64313725490196072" green="0.66666666666666663" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedTextColor">
+                                                            <color key="value" red="0.64313725489999995" green="0.66666666669999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.051746587643678163" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                            <size key="value" width="0.0" height="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="marginY">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="marginX">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.95661741495132446" green="0.96063953638076782" blue="0.97295886278152466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="ggq-ZR-5Q0" secondAttribute="trailing" id="0BD-f4-gZf"/>
-                                                <constraint firstItem="ggq-ZR-5Q0" firstAttribute="top" secondItem="Yd8-E8-bdH" secondAttribute="top" id="8ya-ho-XyH"/>
-                                                <constraint firstItem="ggq-ZR-5Q0" firstAttribute="leading" secondItem="Yd8-E8-bdH" secondAttribute="leading" id="Q29-JX-wLU"/>
+                                                <constraint firstAttribute="trailing" secondItem="ggq-ZR-5Q0" secondAttribute="trailing" constant="8" id="0BD-f4-gZf"/>
+                                                <constraint firstItem="ggq-ZR-5Q0" firstAttribute="top" secondItem="Yd8-E8-bdH" secondAttribute="top" constant="8" id="8ya-ho-XyH"/>
+                                                <constraint firstItem="ggq-ZR-5Q0" firstAttribute="leading" secondItem="Yd8-E8-bdH" secondAttribute="leading" constant="8" id="Q29-JX-wLU"/>
                                                 <constraint firstAttribute="bottom" secondItem="ggq-ZR-5Q0" secondAttribute="bottom" id="few-Yr-cBF"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -263,6 +302,9 @@
                             <outlet property="delegate" destination="DHe-YM-Cup" id="m4u-29-ijf"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tagListView" destination="ggq-ZR-5Q0" id="5pR-8r-KyC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwx-Jo-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -337,6 +379,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Mag-Jy-hyp"/>
-        <segue reference="1hB-OK-9Xq"/>
+        <segue reference="4dr-Ba-9vS"/>
     </inferredMetricsTieBreakers>
 </document>

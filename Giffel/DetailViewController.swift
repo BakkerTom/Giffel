@@ -9,12 +9,14 @@
 import UIKit
 import Nuke
 import NukeFLAnimatedImagePlugin
+import TagListView
 
 class DetailViewController: UITableViewController {
     
     var selectedGif: Gif?
     let imageView: AnimatedImageView = AnimatedImageView()
     var headerView: UIView!
+    @IBOutlet weak var tagListView: TagListView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,11 @@ class DetailViewController: UITableViewController {
         let ratio = screenWidth / imageWidth
         
         headerView.bounds = CGRect(x: headerView.frame.origin.x, y: headerView.frame.origin.y, width: headerView.frame.size.width, height: (imageView.imageView.image?.size.height)! * ratio)
+        
+        tagListView.textFont = UIFont.boldSystemFont(ofSize: 18)
+        for tag in (selectedGif?.tags)!{
+            tagListView.addTag(tag)
+        }
         
     }
 
