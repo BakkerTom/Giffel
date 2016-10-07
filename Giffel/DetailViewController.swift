@@ -61,12 +61,12 @@ class DetailViewController: UITableViewController {
     }
 
     @IBAction func btnCopyGifURL(_ sender: UIButton) {
-        let gifToShare = "https:" + (selectedGif?.imageUrl)!
+        let gifToShare = selectedGif?.shareUrl!
         UIPasteboard.general.string = gifToShare
         
         let alertController = UIAlertController(title: "Gelukt!", message:
-            "U heeft de URL naar de gif succesvol naar Uw klembord gekopieerd!", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            "U heeft de URL naar de gif succesvol naar het klembord gekopieerd!", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Oke", style: UIAlertActionStyle.default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
         

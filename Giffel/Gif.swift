@@ -12,11 +12,13 @@ class Gif {
     let id: Int?
     let imageUrl: String?
     let tags: [String]?
+    var shareUrl: String?
     
     init(id: Int, imageUrl: String, tags: [String]) {
         self.id = id
         self.imageUrl = imageUrl
         self.tags = tags
+        self.shareUrl = "https://warm-gorge-21566.herokuapp.com"
     }
     
     init(data: [String: Any]) {
@@ -24,6 +26,7 @@ class Gif {
         self.id = data["id"] as? Int
         self.imageUrl = data["image"] as? String
         self.tags = data["tag_list"] as? [String]
+        self.shareUrl = data["url"] as? String
     }
 }
 
