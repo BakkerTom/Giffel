@@ -1,22 +1,22 @@
 PODS:
-  - Alamofire (4.0.0)
+  - Alamofire (4.0.1)
   - FLAnimatedImage (1.0.12)
-  - Nuke (4.0)
+  - Nuke (4.1.1)
   - Nuke-FLAnimatedImage-Plugin (2.0):
     - FLAnimatedImage (~> 1.0)
     - Nuke
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0)
-  - Nuke (~> 4.0)
+  - Alamofire (~> 4.0.1)
+  - Nuke (~> 4.1.1)
   - Nuke-FLAnimatedImage-Plugin
 
 SPEC CHECKSUMS:
-  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  Nuke: c738cc70c96febfbc974809c1eb8b3d600b09a6b
+  Nuke: e334bd9834f380951237e880f084c93846fdc36c
   Nuke-FLAnimatedImage-Plugin: 0cc0d6f4b32161fb1ad8714b86335f4145c05f60
 
-PODFILE CHECKSUM: 774b74aa3ff8b180143c9bf9eb142bd1b9a69f77
+PODFILE CHECKSUM: 2107cf995d2098a505245aeb4eb7e8ffba9fe127
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.0.1
