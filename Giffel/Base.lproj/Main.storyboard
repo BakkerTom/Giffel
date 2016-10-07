@@ -35,7 +35,7 @@
         <scene sceneID="83v-dx-3vc">
             <objects>
                 <collectionViewController id="Me8-eN-l9P" customClass="GifCollectionViewController" customModule="Giffel" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5IA-hm-YhQ">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="5IA-hm-YhQ">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95661741495132446" green="0.96063953638076782" blue="0.97295886278152466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -137,6 +137,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Ontdekken" id="5Vd-p0-Mmi"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="FRR-ko-o6C">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAw-MP-7Az" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,7 +359,7 @@
         <image name="heart" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZDd-15-1wj"/>
+        <segue reference="Mag-Jy-hyp"/>
         <segue reference="1hB-OK-9Xq"/>
     </inferredMetricsTieBreakers>
 </document>

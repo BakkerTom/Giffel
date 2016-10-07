@@ -28,7 +28,7 @@ class GifCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         loadData()
         
-        // Add refreshControl to Table View
+        // Add refreshControl to CollectionView
         if #available(iOS 10.0, *) {
             collectionView?.refreshControl = refreshControl
         } else {
