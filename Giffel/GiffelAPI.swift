@@ -11,6 +11,29 @@ import Alamofire
 
 class GiffelAPI {
     
+    class func retrieveGuid(completion: @escaping ((String) -> (Void))){
+        
+        let defaults = UserDefaults.standard
+        let url = "https://warm-gorge-21566.herokuapp.com/users/create.json"
+        var guid: String?
+        
+        if defaults.object(forKey: "deviceGuid") != nil {
+            guid = defaults.object(forKey: "deviceGuid") as! String?
+            completion(guid!)
+        } else {
+            Alamofire.request(url).responseJSON {handler in
+                guard let responseJSON = handler.result.value as? [String: Any] else {
+                    completion("")
+                    return
+                }
+
+                guid = responseJSON["guid"] as! String?
+                defaults.set(guid, forKey: "deviceGuid")
+                completion(guid!)
+            }
+        }
+    }
+    
     class func retrievePopular(completion: @escaping (([Gif]) -> (Void))){
         let url = "https://warm-gorge-21566.herokuapp.com/gifs.json"
         
@@ -20,7 +43,6 @@ class GiffelAPI {
                 return
             }
             
-            print("JSON: \(responseJSON)")
             let gifs = parse(gifData: responseJSON)
             completion(gifs)
         }
@@ -36,7 +58,6 @@ class GiffelAPI {
                 return
             }
             
-            print("JSON: \(responseJSON)")
             let gifs = parse(gifData: responseJSON)
             completion(gifs)
         }

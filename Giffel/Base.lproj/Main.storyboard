@@ -237,11 +237,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="198" id="9Ms-mQ-VUk">
-                                        <rect key="frame" x="0.0" y="288" width="375" height="198"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9Ms-mQ-VUk">
+                                        <rect key="frame" x="0.0" y="288" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Ms-mQ-VUk" id="Yd8-E8-bdH">
-                                            <frame key="frameInset" width="375" height="198"/>
+                                            <frame key="frameInset" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggq-ZR-5Q0" customClass="TagListView" customModule="TagListView">
@@ -336,7 +336,7 @@
         <!--Favorieten-->
         <scene sceneID="UJS-R7-EFQ">
             <objects>
-                <collectionViewController id="BqF-P9-qLn" customClass="GifCollectionViewController" customModule="Giffel" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="BqF-P9-qLn" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3mT-vu-QT4">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -48,11 +48,9 @@ class DetailViewController: UITableViewController {
     }
 
     @IBAction func btnShareGif(_ sender: UIButton) {
-        // Changed attributdText to text!
-        let gifToShare = "https:" + (selectedGif?.imageUrl)!
         
-        let shareURL: NSURL = NSURL(string: gifToShare)!
-        let shareData: NSData = NSData(contentsOf: shareURL as URL)!
+        let gif = imageView.imageView.animatedImage.data
+        let shareData: NSData = NSData(data: gif!)
         let firstActivityItem: Array = [shareData]
 
                 

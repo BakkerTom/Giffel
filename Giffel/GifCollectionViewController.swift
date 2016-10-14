@@ -37,6 +37,11 @@ class GifCollectionViewController: UICollectionViewController {
         
         // Configure Refresh Control
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        
+        //Get a GUID for this device
+        GiffelAPI.retrieveGuid { (guid) -> (Void) in
+            print("Your guid: \(guid)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,7 +112,8 @@ class GifCollectionViewController: UICollectionViewController {
         }
         return cell
     }
-
+    
+    
     // MARK: UICollectionViewDelegate
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
