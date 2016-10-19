@@ -94,5 +94,6 @@ class GiffelAPI {
         }
         
         return gifs
+        
     }
 }

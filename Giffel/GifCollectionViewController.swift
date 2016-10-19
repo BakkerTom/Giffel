@@ -19,12 +19,15 @@ class GifCollectionViewController: UICollectionViewController {
     var manager = Nuke.Manager.shared
     private let refreshControl = UIRefreshControl()
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Register cell classes
         collectionView?.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
+        activityIndicator.startAnimating()
         // Do any additional setup after loading the view.
         loadData()
         
@@ -55,6 +58,7 @@ class GifCollectionViewController: UICollectionViewController {
                 self.gifs = results
                 self.collectionView?.reloadData()
                 self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
             })
             
             self.title = tag?.name
@@ -63,6 +67,7 @@ class GifCollectionViewController: UICollectionViewController {
                 self.gifs = results
                 self.collectionView?.reloadData()
                 self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
             }
         }
     }

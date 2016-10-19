@@ -38,13 +38,17 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5IA-hm-YhQ">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.95661741495132446" green="0.96063953638076782" blue="0.97295886278152466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="h1M-m1-p6h">
                             <size key="itemSize" width="187.5" height="180"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="Cbi-Cg-Amh">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Qgo-VJ-HA4" customClass="GifCollectionViewCell" customModule="Giffel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="180"/>
@@ -66,6 +70,9 @@
                     <navigationItem key="navigationItem" title="GIFFEL" id="VWD-0j-FmC">
                         <barButtonItem key="backBarButtonItem" title="Populair" id="38x-vN-Yq4"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Cbi-Cg-Amh" id="mj6-Ra-7Jc"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTk-Ei-lJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -308,7 +315,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwx-Jo-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4294" y="844"/>
+            <point key="canvasLocation" x="4293.6000000000004" y="843.32833583208401"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HpY-5u-9f5">
@@ -378,7 +385,7 @@
         <image name="heart" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1hB-OK-9Xq"/>
         <segue reference="Mag-Jy-hyp"/>
-        <segue reference="4dr-Ba-9vS"/>
     </inferredMetricsTieBreakers>
 </document>

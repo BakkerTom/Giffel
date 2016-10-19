@@ -24,6 +24,8 @@ class GifCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         
         contentView.addSubview(imageView)
+        contentView.backgroundColor = UIColor(red: 244.0/255.0, green: 245.0/255.0, blue: 248.0/255.0, alpha: 1.0)
+        
         imageView.frame = contentView.bounds
         imageView.autoresizingMask =  [.flexibleWidth, .flexibleHeight]
         
@@ -40,6 +42,6 @@ class GifCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageView.imageView.image = nil
+        imageView.imageView.animatedImage = nil
     }
 }
