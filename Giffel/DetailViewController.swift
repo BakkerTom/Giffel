@@ -11,11 +11,13 @@ import Nuke
 import NukeFLAnimatedImagePlugin
 import TagListView
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UITableViewController, TagListViewDelegate {
     
     var selectedGif: Gif?
     let imageView: AnimatedImageView = AnimatedImageView()
     var headerView: UIView!
+    var selectedTag: String?
+    
     @IBOutlet weak var tagListView: TagListView!
 
     override func viewDidLoad() {
@@ -43,12 +45,27 @@ class DetailViewController: UITableViewController {
         tagListView.textFont = UIFont.boldSystemFont(ofSize: 18)
         for tag in (selectedGif?.tags)!{
             tagListView.addTag(tag)
+            
         }
         
-        let likeButton = UIBarButtonItem(title: "Like", style: .done, target: self, action: #selector(likeGif))
-        self.navigationItem.rightBarButtonItem = likeButton
+        tagListView.delegate = self
+        
+        
+        
+        
+        //let likeButton = UIBarButtonItem(title: "Like", style: .done, target: self, action: #selector(likeGif))
+        //self.navigationItem.rightBarButtonItem = likeButton
         
     }
+    
+    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        let tag = Tag(id: 0, name: title, taggings: 0)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "collection") as! GifCollectionViewController
+        vc.tag = tag
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 
     @IBAction func btnShareGif(_ sender: UIButton) {
         
@@ -84,5 +101,7 @@ class DetailViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
+    
+
+    
 }
