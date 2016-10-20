@@ -51,11 +51,6 @@ class DetailViewController: UITableViewController, TagListViewDelegate {
         tagListView.delegate = self
         
         
-        
-        
-        //let likeButton = UIBarButtonItem(title: "Like", style: .done, target: self, action: #selector(likeGif))
-        //self.navigationItem.rightBarButtonItem = likeButton
-        
     }
     
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
