@@ -44,9 +44,23 @@ class DetailViewController: UITableViewController {
         for tag in (selectedGif?.tags)!{
             tagListView.addTag(tag)
         }
+        if let likes = selectedGif?.likes {
+            let likeButton = UIBarButtonItem(title: "\(likes)", style: .done, target: self, action: #selector(likeGif))
+            self.navigationItem.rightBarButtonItem = likeButton
+        }
         
-        let likeButton = UIBarButtonItem(title: "Like", style: .done, target: self, action: #selector(likeGif))
-        self.navigationItem.rightBarButtonItem = likeButton
+    }
+    
+    func likeGif(){
+        GiffelAPI.retrieveGuid { (guid) -> (Void) in
+            GiffelAPI.like(gif: self.selectedGif!, guid: guid)
+            
+            let alertController = UIAlertController(title: "Gelukt!", message:
+                "U heeft de post geliket", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Oke", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
         
     }
 
