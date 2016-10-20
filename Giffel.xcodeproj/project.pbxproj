@@ -11,7 +11,6 @@
 		8C9625751A663AD2519110E4 /* Pods_GiffelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8DD46358FA3EEF691EABE8 /* Pods_GiffelTests.framework */; };
 		E2042EEE1D93E57E00D2CC65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2042EED1D93E57E00D2CC65 /* AppDelegate.swift */; };
 		E2042EF31D93E57E00D2CC65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2042EF11D93E57E00D2CC65 /* Main.storyboard */; };
-		E2042EF51D93E57E00D2CC65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2042EF41D93E57E00D2CC65 /* Assets.xcassets */; };
 		E2042EF81D93E57E00D2CC65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2042EF61D93E57E00D2CC65 /* LaunchScreen.storyboard */; };
 		E2042F031D93E57E00D2CC65 /* GiffelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2042F021D93E57E00D2CC65 /* GiffelTests.swift */; };
 		E20ACB661DA44DD8001C9AB4 /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20ACB651DA44DD8001C9AB4 /* GifCollectionViewCell.swift */; };
@@ -20,6 +19,7 @@
 		E240B8891DA4160200EE05F6 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B8881DA4160200EE05F6 /* Gif.swift */; };
 		E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */; };
 		E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */; };
+		E2EA8C081DB8CC9D001B57B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EA8C071DB8CC9D001B57B1 /* Assets.xcassets */; };
 		E2FFE2C01DA553900031C823 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFE2BF1DA5538F0031C823 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,6 @@
 		E2042EEA1D93E57E00D2CC65 /* Giffel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Giffel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2042EED1D93E57E00D2CC65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2042EF21D93E57E00D2CC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E2042EF41D93E57E00D2CC65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2042EF71D93E57E00D2CC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2042EF91D93E57E00D2CC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2042EFE1D93E57E00D2CC65 /* GiffelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiffelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +54,7 @@
 		E240B8881DA4160200EE05F6 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiffelAPI.swift; sourceTree = "<group>"; };
 		E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewController.swift; sourceTree = "<group>"; };
+		E2EA8C071DB8CC9D001B57B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2FFE2BF1DA5538F0031C823 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,8 +124,8 @@
 				E240B88F1DA41D0500EE05F6 /* ViewControllers */,
 				E240B88A1DA4173600EE05F6 /* Models */,
 				E2042EED1D93E57E00D2CC65 /* AppDelegate.swift */,
+				E2EA8C071DB8CC9D001B57B1 /* Assets.xcassets */,
 				E2042EF11D93E57E00D2CC65 /* Main.storyboard */,
-				E2042EF41D93E57E00D2CC65 /* Assets.xcassets */,
 				E2042EF61D93E57E00D2CC65 /* LaunchScreen.storyboard */,
 				E2042EF91D93E57E00D2CC65 /* Info.plist */,
 			);
@@ -254,7 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2042EF81D93E57E00D2CC65 /* LaunchScreen.storyboard in Resources */,
-				E2042EF51D93E57E00D2CC65 /* Assets.xcassets in Resources */,
+				E2EA8C081DB8CC9D001B57B1 /* Assets.xcassets in Resources */,
 				E2042EF31D93E57E00D2CC65 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

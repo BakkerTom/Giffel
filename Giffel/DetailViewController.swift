@@ -47,9 +47,49 @@ class DetailViewController: UITableViewController, TagListViewDelegate {
             tagListView.addTag(tag)
             
         }
+        if let likes = selectedGif?.likes {
+            //Create likeView
+            let likeView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+            
+            //Create heart button
+            
+            let heartButton = UIButton(type: .custom)
+            heartButton.setImage(#imageLiteral(resourceName: "ic_favorite_border"), for: .normal)
+            heartButton.frame = CGRect(x: likeView.frame.width - 24, y: 8, width: 24, height: 24)
+            
+            //Create label
+            let likesLabel = UILabel()
+            likesLabel.frame = CGRect(x: 0, y: 8, width: likeView.frame.width - 32, height: 24)
+            likesLabel.text = "\(likes)"
+            likesLabel.textAlignment = .right
+            likesLabel.textColor = UIColor(red: 76.0 / 255.0, green: 79.0 / 255.0, blue: 81.0 / 255.0, alpha: 1.0)
+            likesLabel.font = UIFont.boldSystemFont(ofSize: 16)
+            
+            //Add subviews
+            likeView.addSubview(heartButton)
+            likeView.addSubview(likesLabel)
+            
+            let likeButton = UIBarButtonItem(customView: likeView)
+            self.navigationItem.rightBarButtonItem = likeButton
+        }
         
+<<<<<<< HEAD
         tagListView.delegate = self
         
+=======
+    }
+    
+    func likeGif(){
+        GiffelAPI.retrieveGuid { (guid) -> (Void) in
+            GiffelAPI.like(gif: self.selectedGif!, guid: guid)
+            
+            let alertController = UIAlertController(title: "Gelukt!", message:
+                "U heeft de post geliket", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Oke", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+>>>>>>> liking
         
     }
     

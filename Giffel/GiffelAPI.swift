@@ -86,6 +86,17 @@ class GiffelAPI {
         }
     }
     
+    class func like(gif: Gif, guid: String){
+        if let gifID = gif.id {
+            let url = "https://warm-gorge-21566.herokuapp.com/gifs/vote?gif=\(gifID)&guid=\(guid)"
+            
+            Alamofire.request(url).response(completionHandler: { (response) in
+                print(response)
+            })
+        }
+        
+    }
+    
     class func parse(gifData: [[String: Any]]) -> [Gif]{
         var gifs = [Gif]()
         
