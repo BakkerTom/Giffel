@@ -45,6 +45,9 @@ class DetailViewController: UITableViewController {
             tagListView.addTag(tag)
         }
         
+        let likeButton = UIBarButtonItem(title: "Like", style: .done, target: self, action: #selector(likeGif))
+        self.navigationItem.rightBarButtonItem = likeButton
+        
     }
 
     @IBAction func btnShareGif(_ sender: UIButton) {
