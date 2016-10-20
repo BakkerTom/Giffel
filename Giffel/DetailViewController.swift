@@ -45,7 +45,28 @@ class DetailViewController: UITableViewController {
             tagListView.addTag(tag)
         }
         if let likes = selectedGif?.likes {
-            let likeButton = UIBarButtonItem(title: "\(likes)", style: .done, target: self, action: #selector(likeGif))
+            //Create likeView
+            let likeView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+            
+            //Create heart button
+            
+            let heartButton = UIButton(type: .custom)
+            heartButton.setImage(#imageLiteral(resourceName: "ic_favorite_border"), for: .normal)
+            heartButton.frame = CGRect(x: likeView.frame.width - 24, y: 8, width: 24, height: 24)
+            
+            //Create label
+            let likesLabel = UILabel()
+            likesLabel.frame = CGRect(x: 0, y: 8, width: likeView.frame.width - 32, height: 24)
+            likesLabel.text = "\(likes)"
+            likesLabel.textAlignment = .right
+            likesLabel.textColor = UIColor(red: 76.0 / 255.0, green: 79.0 / 255.0, blue: 81.0 / 255.0, alpha: 1.0)
+            likesLabel.font = UIFont.boldSystemFont(ofSize: 16)
+            
+            //Add subviews
+            likeView.addSubview(heartButton)
+            likeView.addSubview(likesLabel)
+            
+            let likeButton = UIBarButtonItem(customView: likeView)
             self.navigationItem.rightBarButtonItem = likeButton
         }
         
