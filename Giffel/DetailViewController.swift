@@ -18,7 +18,11 @@ class DetailViewController: UITableViewController, TagListViewDelegate {
     var headerView: UIView!
     var selectedTag: String?
     
+    
     @IBOutlet weak var tagListView: TagListView!
+    
+    let likesLabel = UILabel()
+    let heartButton = UIButton(type: .custom)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,18 +51,20 @@ class DetailViewController: UITableViewController, TagListViewDelegate {
             tagListView.addTag(tag)
             
         }
+        
         if let likes = selectedGif?.likes {
             //Create likeView
             let likeView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
             
             //Create heart button
             
-            let heartButton = UIButton(type: .custom)
+            
             heartButton.setImage(#imageLiteral(resourceName: "ic_favorite_border"), for: .normal)
             heartButton.frame = CGRect(x: likeView.frame.width - 24, y: 8, width: 24, height: 24)
+            heartButton.addTarget(self, action: #selector(likeGif), for: .touchUpInside)
             
             //Create label
-            let likesLabel = UILabel()
+            
             likesLabel.frame = CGRect(x: 0, y: 8, width: likeView.frame.width - 32, height: 24)
             likesLabel.text = "\(likes)"
             likesLabel.textAlignment = .right
@@ -73,15 +79,18 @@ class DetailViewController: UITableViewController, TagListViewDelegate {
             self.navigationItem.rightBarButtonItem = likeButton
         }
         
-<<<<<<< HEAD
         tagListView.delegate = self
-        
-=======
     }
     
     func likeGif(){
         GiffelAPI.retrieveGuid { (guid) -> (Void) in
             GiffelAPI.like(gif: self.selectedGif!, guid: guid)
+            
+            if let likes = self.selectedGif?.likes {
+                self.likesLabel.text = "\(likes + 1)"
+                self.heartButton.setImage(#imageLiteral(resourceName: "ic_favorite_white"), for: .normal)
+            }
+            
             
             let alertController = UIAlertController(title: "Gelukt!", message:
                 "U heeft de post geliket", preferredStyle: UIAlertControllerStyle.alert)
@@ -89,7 +98,6 @@ class DetailViewController: UITableViewController, TagListViewDelegate {
             
             self.present(alertController, animated: true, completion: nil)
         }
->>>>>>> liking
         
     }
     
