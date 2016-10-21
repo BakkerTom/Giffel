@@ -86,6 +86,30 @@ class GiffelAPI {
         }
     }
     
+    class func searchTags(tag: String, completion: @escaping (([Tag]) -> (Void))){
+        let escapedTag = tag.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? tag
+        let url = "https://warm-gorge-21566.herokuapp.com/tags/index.json?search=" + escapedTag
+        
+        Alamofire.request(url).responseJSON {handler in
+            guard let responseJSON = handler.result.value as? [[String: Any]] else
+            {
+                completion([])
+                return
+            }
+            
+            var tags = [Tag]()
+            for item in responseJSON{
+                let id: Int = item["id"] as! Int
+                let name: String = item["name"] as! String
+                let taggings: Int = item["taggings_count"] as! Int
+                tags.append(Tag(id: id, name: name, taggings: taggings))
+            }
+            
+            completion(tags)
+        }
+
+    }
+    
     class func like(gif: Gif, guid: String){
         if let gifID = gif.id {
             let url = "https://warm-gorge-21566.herokuapp.com/gifs/vote?gif=\(gifID)&guid=\(guid)"
