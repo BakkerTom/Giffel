@@ -45,6 +45,7 @@ class GifCollectionViewController: UICollectionViewController {
         GiffelAPI.retrieveGuid { (guid) -> (Void) in
             print("Your guid: \(guid)")
         }
+
     }
 
     override func didReceiveMemoryWarning() {
