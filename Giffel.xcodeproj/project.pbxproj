@@ -19,6 +19,7 @@
 		E240B8891DA4160200EE05F6 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B8881DA4160200EE05F6 /* Gif.swift */; };
 		E240B88C1DA417EF00EE05F6 /* GiffelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */; };
 		E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */; };
+		E25AE6A11DCB5AAB008DCA96 /* FavoriteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25AE6A01DCB5AAB008DCA96 /* FavoriteCollectionViewController.swift */; };
 		E29E02AF1DBA04070074F997 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29E02AE1DBA04070074F997 /* SearchViewController.swift */; };
 		E2EA8C081DB8CC9D001B57B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EA8C071DB8CC9D001B57B1 /* Assets.xcassets */; };
 		E2FFE2C01DA553900031C823 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFE2BF1DA5538F0031C823 /* DetailViewController.swift */; };
@@ -55,6 +56,7 @@
 		E240B8881DA4160200EE05F6 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		E240B88B1DA417EF00EE05F6 /* GiffelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiffelAPI.swift; sourceTree = "<group>"; };
 		E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewController.swift; sourceTree = "<group>"; };
+		E25AE6A01DCB5AAB008DCA96 /* FavoriteCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewController.swift; sourceTree = "<group>"; };
 		E29E02AE1DBA04070074F997 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E2EA8C071DB8CC9D001B57B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2FFE2BF1DA5538F0031C823 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		E240B88F1DA41D0500EE05F6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E25AE6A01DCB5AAB008DCA96 /* FavoriteCollectionViewController.swift */,
 				E29E02AE1DBA04070074F997 /* SearchViewController.swift */,
 				E2FFE2BF1DA5538F0031C823 /* DetailViewController.swift */,
 				E240B88D1DA41C8C00EE05F6 /* GifCollectionViewController.swift */,
@@ -216,7 +219,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Fontys;
 				TargetAttributes = {
 					E2042EE91D93E57D00D2CC65 = {
@@ -371,6 +374,7 @@
 			files = (
 				E23F7C881DA6D2F40098AD4B /* Tag.swift in Sources */,
 				E240B88E1DA41C8C00EE05F6 /* GifCollectionViewController.swift in Sources */,
+				E25AE6A11DCB5AAB008DCA96 /* FavoriteCollectionViewController.swift in Sources */,
 				E20ACB661DA44DD8001C9AB4 /* GifCollectionViewCell.swift in Sources */,
 				E29E02AF1DBA04070074F997 /* SearchViewController.swift in Sources */,
 				E23F7C851DA687540098AD4B /* DiscoverViewController.swift in Sources */,

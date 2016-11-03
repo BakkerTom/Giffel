@@ -64,6 +64,22 @@ class GiffelAPI {
 
     }
     
+    class func retrieveGifsWith(guid: String, completion: @escaping (([Gif]) -> (Void))){
+        let escapedTag = guid.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? guid
+        let url = "https://warm-gorge-21566.herokuapp.com/gifs.json?guid=" + escapedTag
+        
+        Alamofire.request(url).responseJSON {handler in
+            guard let responseJSON = handler.result.value as? [[String: Any]] else {
+                completion([])
+                return
+            }
+            
+            let gifs = parse(gifData: responseJSON)
+            completion(gifs)
+        }
+        
+    }
+    
     class func retrieveAllTags(completion: @escaping (([Tag]) -> (Void))){
         let url = "https://warm-gorge-21566.herokuapp.com/tags/index.json"
         

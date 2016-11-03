@@ -24,6 +24,8 @@ class DetailViewController: UITableViewController, TagListViewDelegate {
     let likesLabel = UILabel()
     let heartButton = UIButton(type: .custom)
 
+    var isLiked: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,16 +89,17 @@ class DetailViewController: UITableViewController, TagListViewDelegate {
             GiffelAPI.like(gif: self.selectedGif!, guid: guid)
             
             if let likes = self.selectedGif?.likes {
-                self.likesLabel.text = "\(likes + 1)"
-                self.heartButton.setImage(#imageLiteral(resourceName: "ic_favorite_white"), for: .normal)
+                if !self.isLiked {
+                    self.isLiked = true
+                    self.likesLabel.text = "\(likes + 1)"
+                    self.heartButton.setImage(#imageLiteral(resourceName: "ic_favorite_white"), for: .normal)
+                } else {
+                    self.isLiked = false
+                    self.likesLabel.text = "\(likes)"
+                    self.heartButton.setImage(#imageLiteral(resourceName: "ic_favorite_border"), for: .normal)
+                }
+                
             }
-            
-            
-            let alertController = UIAlertController(title: "Gelukt!", message:
-                "U heeft de post geliket", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Oke", style: UIAlertActionStyle.default,handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
         }
         
     }
@@ -132,9 +135,9 @@ class DetailViewController: UITableViewController, TagListViewDelegate {
         let gifToShare = selectedGif?.shareUrl!
         UIPasteboard.general.string = gifToShare
         
-        let alertController = UIAlertController(title: "Gelukt!", message:
-            "U heeft de URL naar de gif succesvol naar het klembord gekopieerd!", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Oke", style: UIAlertActionStyle.default,handler: nil))
+        let alertController = UIAlertController(title: "Jottem!", message:
+            "Een linkje naar dit gifje staat nu in je klembord", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "👍", style: UIAlertActionStyle.default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
         

@@ -12,22 +12,22 @@ import NukeFLAnimatedImagePlugin
 
 private let reuseIdentifier = "Cell"
 
-class GifCollectionViewController: UICollectionViewController {
+class FavoriteCollectionViewController: UICollectionViewController {
     
     private var gifs = [Gif]()
     var tag: Tag?
     var manager = Nuke.Manager.shared
     private let refreshControl = UIRefreshControl()
-
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Register cell classes
         collectionView?.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        activityIndicator.startAnimating()
+        //activityIndicator.startAnimating()
         // Do any additional setup after loading the view.
         loadData()
         
@@ -45,38 +45,29 @@ class GifCollectionViewController: UICollectionViewController {
         GiffelAPI.retrieveGuid { (guid) -> (Void) in
             print("Your guid: \(guid)")
         }
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func loadData(){
-        if tag != nil {
-            GiffelAPI.retrieveGifsWith(tag: tag!.name, completion: { (results) -> (Void) in
+        GiffelAPI.retrieveGuid { (guid) -> (Void) in
+            GiffelAPI.retrieveGifsWith(guid: guid, completion: { (results) -> (Void) in
                 self.gifs = results
                 self.collectionView?.reloadData()
                 self.refreshControl.endRefreshing()
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.isHidden = true
+                //self.activityIndicator.stopAnimating()
+                //self.activityIndicator.isHidden = true
             })
-            
-            self.title = tag?.name
-        } else {
-            GiffelAPI.retrievePopular { (results) -> (Void) in
-                self.gifs = results
-                self.collectionView?.reloadData()
-                self.refreshControl.endRefreshing()
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.isHidden = true
-            }
         }
+        
     }
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
@@ -90,18 +81,18 @@ class GifCollectionViewController: UICollectionViewController {
             //viewController.selectedGif = gifs[collectionView?.selectedItem]
         }
     }
-
+    
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
-
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gifs.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! GifCollectionViewCell
         
@@ -123,9 +114,9 @@ class GifCollectionViewController: UICollectionViewController {
     
     
     // MARK: UICollectionViewDelegate
-
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "show", sender: collectionView.cellForItem(at: indexPath))
     }
-
+    
 }
